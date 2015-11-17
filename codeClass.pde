@@ -16,7 +16,7 @@ void setup() {
   // Setup the ball class
   radius = 10;
   ballColor = color(255, 122, 133);
-  ballv = 2;
+  ballv = 5;
 
   p2x = width/2;
   p2y = 100;

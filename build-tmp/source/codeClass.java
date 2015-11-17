@@ -32,14 +32,14 @@ public void setup() {
   // Setup the ball class
   radius = 10;
   ballColor = color(255, 122, 133);
-  ballv = 2;
+  ballv = 5;
 
   p2x = width/2;
   p2y = 100;
   p2w = 30;
   p2h = 30;
 
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 2; i++) {
     balls.add(new Ball(radius, random(width), random(height), ballv, ballv, ballColor));
   }
 }
@@ -144,7 +144,7 @@ class Ball {
     ballP.x += ballV.x; 
     ballP.y += ballV.y;
 
-    ballCollision(balls);
+    // ballCollision(balls);
     wallCollision();
   }
 
@@ -156,20 +156,20 @@ class Ball {
   public void wallCollision() {
     // left and right walls
     if (ballP.x + radius/2 > width) {
+      ballV.x *= -1;
       ballP.x = width - 1;
-      ballV.x *= -1;
     } else if (ballP.x - radius/2 < 0) {
-      ballP.x = 1; 
       ballV.x *= -1;
+      ballP.x = 1; 
     }
 
     // top and bottom walls
     if (ballP.y + radius/2 > height) {
+      ballV.y *= -1;
       ballP.y = height - 1;
-      ballV.y *= -1;
     } else if (ballP.y - radius/2 < 0) {
-      ballP.y = 1; 
       ballV.y *= -1;
+      ballP.y = 1; 
     }
   }
   
@@ -182,15 +182,6 @@ class Ball {
   }
 
   // When the balls collide with eachother
-  public void ballCollision(ArrayList<Ball> balls) {
-    for (Ball other : balls) {
-      float d = PVector.dist(ballP, other.ballP);
-      if (d < 1) {
-        other.ballV.x *= -1;
-        other.ballV.y *= -1;
-      }
-    }
-  }
 }
   public void settings() {  size(800, 800); }
   static public void main(String[] passedArgs) {
