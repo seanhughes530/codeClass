@@ -43,9 +43,7 @@ void draw() {
 // To make our draw funciton cleaner
 void ballLogic() {
   for (Ball ball : balls) {
-    ball.update();
-    ball.wallCollision();
-    // ball.ballCollision(); 
+    ball.update(balls);
   }
 }
 

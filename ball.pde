@@ -1,3 +1,7 @@
+class Flock {
+
+}
+
 // This is the ball object
 class Ball {
   float radius; 
@@ -11,18 +15,22 @@ class Ball {
     ballV = new PVector(_ballvx, _ballvy);
   }
 
-  void update() {
+  void update(ArrayList<Ball> balls) {
     fill(ballColor);
     ellipse(ballP.x, ballP.y, radius, radius);
 
     ballP.x += ballV.x; 
     ballP.y += ballV.y;
+
+    ballCollision(balls);
+    wallCollision();
   }
 
   void playerCollision() {
 
   }
 
+  // Detect wall Collision
   void wallCollision() {
     // left and right walls
     if (ballP.x + radius/2 > width) {
@@ -52,9 +60,13 @@ void playerTwoCollision(float _p2x, float _p2y, float _p2w, float _p2h){
 }
 
   // When the balls collide with eachother
-  // void ballCollision(ArrayList<Ball> balls) {
-  //   for (Ball other : balls) {
-  //     if (other.ballx)
-  //   }
-  // }
+  void ballCollision(ArrayList<Ball> balls) {
+    for (Ball other : balls) {
+      float d = PVector.dist(ballP, other.ballP);
+      if (d < 1) {
+        float a = PVector.angleBetween(ballP, other.ballP);
+        println("hello");
+      }
+    }
+  }
 }

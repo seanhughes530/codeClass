@@ -22,6 +22,9 @@ float radius;
 float ballv;
 int ballColor; 
 
+//player2
+float p2x, p2y;
+
 public void setup() {
   
   
@@ -29,6 +32,9 @@ public void setup() {
   radius = 10;
   ballColor = color(255, 122, 133);
   ballv = 10;
+
+  p2x = width/2;
+  p2y = 100;
 
   for (int i = 0; i < 10; i++) {
     balls.add(new Ball(radius, random(width), random(height), ballv, ballv, ballColor));
@@ -39,14 +45,32 @@ public void draw() {
   background(255);
   
   ballLogic(); 
+  
+  playerTwo();
+  rect(p2x, p2y, 30, 30);
 }
 
 // To make our draw funciton cleaner
 public void ballLogic() {
   for (Ball ball : balls) {
-    ball.update();
-    ball.wallCollision();
-    // ball.ballCollision(); 
+    ball.update(balls);
+  }
+}
+
+public void playerTwo(){
+  if(keyPressed){
+    if(key == 'i'){
+      p2y -= 10;
+    }
+    if(key == 'k'){
+      p2y += 10;
+    }
+    if(key == 'j'){
+      p2x -= 10;
+    }
+    if(key == 'l'){
+      p2x += 10;
+    }
   }
 }
 class paddle{
@@ -77,6 +101,10 @@ class paddle{
 
 
 }
+class Flock {
+
+}
+
 // This is the ball object
 class Ball {
   float radius; 
@@ -90,18 +118,22 @@ class Ball {
     ballV = new PVector(_ballvx, _ballvy);
   }
 
-  public void update() {
+  public void update(ArrayList<Ball> balls) {
     fill(ballColor);
     ellipse(ballP.x, ballP.y, radius, radius);
 
     ballP.x += ballV.x; 
     ballP.y += ballV.y;
+
+    ballCollision(balls);
+    wallCollision();
   }
 
   public void playerCollision() {
 
   }
 
+  // Detect wall Collision
   public void wallCollision() {
     // left and right walls
     if (ballP.x + radius/2 > width) {
@@ -123,11 +155,15 @@ class Ball {
   }
 
   // When the balls collide with eachother
-  // void ballCollision(ArrayList<Ball> balls) {
-  //   for (Ball other : balls) {
-  //     if (other.ballx)
-  //   }
-  // }
+  public void ballCollision(ArrayList<Ball> balls) {
+    for (Ball other : balls) {
+      float d = PVector.dist(ballP, other.ballP);
+      if (d < 1) {
+        float a = PVector.angleBetween(ballP, other.ballP);
+        println("hello");
+      }
+    }
+  }
 }
   public void settings() {  size(800, 800); }
   static public void main(String[] passedArgs) {
