@@ -18,10 +18,7 @@ void setup() {
   ballColor = color(255, 122, 133);
   ballv = 5;
 
-<<<<<<< HEAD
-  ballv = 5;
-=======
->>>>>>> d218235d702cb9962e2bab75543b1a5b42f2de5a
+
   p1 = new Paddle();
 
     p2x = width/2;
