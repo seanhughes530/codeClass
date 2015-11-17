@@ -16,8 +16,8 @@ void setup() {
   // Setup the ball class
   radius = 10;
   ballColor = color(255, 122, 133);
+  ballv = 5;
 
-    ballv = 10;
   p1 = new Paddle();
 
     p2x = width/2;
