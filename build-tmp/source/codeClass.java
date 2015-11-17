@@ -24,10 +24,10 @@ int ballColor;
 
 public void setup() {
   
-
+  
   // Setup the ball class
   radius = 10;
-  ballColor = color(255);
+  ballColor = color(255, 122, 133);
   ballv = 10;
 
   for (int i = 0; i < 10; i++) {
@@ -36,11 +36,17 @@ public void setup() {
 }
 
 public void draw() {
+  background(255);
+  
+  ballLogic(); 
+}
 
+
+public void ballLogic() {
   for (Ball ball : balls) {
     ball.update();
+    ball.wallCollision();
   }
-  
 }
 // This is the ball object
 class Ball {
@@ -59,12 +65,38 @@ class Ball {
   public void update() {
     fill(ballColor);
     ellipse(ballx, bally, radius, radius);
+
+    ballx += ballvx; 
+    bally += ballvy;
   }
 
-  public void collision() {
+  public void playerCollision() {
+
+  }
+
+  public void wallCollision() {
+    // left and right walls
+    if (ballx + radius/2 > width) {
+      ballx = width - 1;
+      ballvx *= -1;
+    } else if (ballx - radius/2 < 0) {
+      ballx = 1; 
+      ballvx *= -1;
+    }
+
+    // top and bottom walls
+    if (bally + radius/2 > height) {
+      bally = height - 1;
+      ballvy *= -1;
+    } else if (bally - radius/2 < 0) {
+      bally = 1; 
+      ballvy *= -1;
+    }
+
 
   }
 }
+  public void settings() {  size(800, 800); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "codeClass" };
     if (passedArgs != null) {

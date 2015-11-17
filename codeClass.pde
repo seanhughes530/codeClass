@@ -8,10 +8,10 @@ color ballColor;
 
 void setup() {
   
-
+  size(800, 800);
   // Setup the ball class
   radius = 10;
-  ballColor = color(255);
+  ballColor = color(255, 122, 133);
   ballv = 10;
 
   for (int i = 0; i < 10; i++) {
@@ -20,9 +20,15 @@ void setup() {
 }
 
 void draw() {
+  background(255);
+  
+  ballLogic(); 
+}
 
+
+void ballLogic() {
   for (Ball ball : balls) {
     ball.update();
+    ball.wallCollision();
   }
-  
 }
