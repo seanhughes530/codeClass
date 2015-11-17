@@ -1,13 +1,14 @@
 class Paddle {
-  float paddleX, paddleY, newPX, newPY, speed, pWidth, pHeight;
+  float paddleX, paddleY, newPX, newPY, speedX, speedY, pWidth, pHeight;
   color p1Color;
-  PVector p1Pos;
+  PVector f = new PVector(1, 1);
   
-  void setup(){
+  Paddle(){
     smooth();
     noStroke();
-    speed = 0f;
-    pWidth = 10f;
+    speedX = .5f;
+    speedY = .5f;
+    pWidth = 10;
     pHeight = 50;
     paddleX = pWidth;
     paddleY = (height/2) - (pHeight/2);
@@ -23,10 +24,24 @@ class Paddle {
         
     fill(p1Color);
     rect(paddleX, paddleY, pWidth, pHeight);
-    //rect(paddleX, paddleY, pWidth, pHeight);
+    
   }
   void pMove() {
-     
+     if (keyPressed) {
+       if (key == 'w' || key == 'W'){
+         paddleY -= 10;
+       }
+       if (key == 's' || key == 'S'){
+         paddleY += 10;
+       }
+       if (key == 'a' || key == 'A'){
+         paddleX -= 10;
+       }
+       if (key == 'd' || key == 'D'){
+         paddleX += 10;
+       }
+       
+     }    
   }
   void catchThrow() {
   }

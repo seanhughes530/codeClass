@@ -30,7 +30,7 @@ void setup() {
 
 void draw() {
   background(255);
-  p1crtl();
+  p1.update();
   ballLogic(); 
   
   for(Ball ball : balls){
@@ -64,11 +64,4 @@ void playerTwo(){
       p2x += 10;
     }
   }
-}
-
-void p1crtl(){
-  p1.drawPlayer();
-  p1.update();
-  p1.hitCheck();
-  p1.pMove();
 }
