@@ -16,8 +16,9 @@ void setup() {
   // Setup the ball class
   radius = 10;
   ballColor = color(255, 122, 133);
-
   ballv = 5;
+
+
   p1 = new Paddle();
   p2x = width/2;
   p2y = 100;
@@ -66,6 +67,7 @@ void playerTwo() {
       p2x += 10;
     }
   }
+<<<<<<< HEAD
 }
 
 //void playerCollide() {
@@ -115,3 +117,15 @@ void playerTwo() {
 //    }
 //  }
 //}
+=======
+
+}
+
+void p1crtl() {
+  p1.drawPlayer();
+  p1.update();
+  p1.hitCheck();
+  p1.pMove();
+
+}
+>>>>>>> 5abb4951c4bbddcf177bd73377f1f30651b495bd
