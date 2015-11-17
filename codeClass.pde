@@ -5,7 +5,7 @@ ArrayList<Ball> balls = new ArrayList<Ball>();
 float radius;
 float ballv;
 color ballColor;
-Paddle p1= new Paddle();
+Paddle p1;
 
 //player2
 float p2x, p2y;
@@ -17,7 +17,7 @@ void setup() {
   radius = 10;
   ballColor = color(255, 122, 133);
   ballv = 10;
-
+  p1 = new Paddle();
   p2x = width/2;
   p2y = 100;
 

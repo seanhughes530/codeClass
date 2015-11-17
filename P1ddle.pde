@@ -4,6 +4,8 @@ class Paddle {
   PVector p1Pos;
   
   void setup(){
+    smooth();
+    noStroke();
     speed = 0f;
     pWidth = 10f;
     pHeight = 50;
@@ -24,7 +26,7 @@ class Paddle {
     //rect(paddleX, paddleY, pWidth, pHeight);
   }
   void pMove() {
-    
+     
   }
   void catchThrow() {
   }
