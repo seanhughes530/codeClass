@@ -20,7 +20,11 @@ ArrayList<Ball> balls = new ArrayList<Ball>();
 // Ball Object Variables
 float radius;
 float ballv;
-int ballColor; 
+int ballColor;
+Paddle p1= new Paddle();
+
+//player2
+float p2x, p2y, p2w, p2h;
 
 public void setup() {
   
@@ -28,7 +32,12 @@ public void setup() {
   // Setup the ball class
   radius = 10;
   ballColor = color(255, 122, 133);
-  ballv = 10;
+  ballv = 2;
+
+  p2x = width/2;
+  p2y = 100;
+  p2w = 30;
+  p2h = 30;
 
   for (int i = 0; i < 10; i++) {
     balls.add(new Ball(radius, random(width), random(height), ballv, ballv, ballColor));
@@ -37,46 +46,84 @@ public void setup() {
 
 public void draw() {
   background(255);
-  
+  p1crtl();
   ballLogic(); 
+  
+  for(Ball ball : balls){
+    ball.playerTwoCollision(p2x, p2y, p2w, p2h);
+  }
+  playerTwo();
+  rect(p2x, p2y, p2w, p2h);
 }
 
 // To make our draw funciton cleaner
 public void ballLogic() {
   for (Ball ball : balls) {
-    ball.update();
-    ball.wallCollision();
-    // ball.ballCollision(); 
+    ball.update(balls);
   }
 }
-class paddle{
-  float paddleX, paddleY, speed;
+
+public void playerTwo(){
+  if(keyPressed){
+    if(key == 'i'){
+      p2y -= 10;
+    }
+    if(key == 'k'){
+      p2y += 10;
+    }
+    if(key == 'j'){
+      p2x -= 10;
+    }
+    if(key == 'l'){
+      p2x += 10;
+    }
+  }
+}
+
+public void p1crtl(){
+  p1.drawPlayer();
+  p1.update();
+  p1.hitCheck();
+  p1.pMove();
+}
+class Paddle {
+  float paddleX, paddleY, newPX, newPY, speed, pWidth, pHeight;
   int p1Color;
   PVector p1Pos;
-     
-  public void update(){
+  
+  public void setup(){
+    speed = 0f;
+    pWidth = 10f;
+    pHeight = 50;
+    paddleX = pWidth;
+    paddleY = (height/2) - (pHeight/2);
+    p1Color = (0xff8EBEFF);
+  }
+  public void update() {
     drawPlayer();
     pMove();
     catchThrow();
     hitCheck();
   }
-  public void drawPlayer(){
-      
+  public void drawPlayer() {
+        
+    fill(p1Color);
+    rect(paddleX, paddleY, pWidth, pHeight);
+    //rect(paddleX, paddleY, pWidth, pHeight);
   }
-  public void pMove(){
+  public void pMove() {
     
   }
-  public void catchThrow(){
-  
-  }
-  
-  public void hitCheck(){
-  
+  public void catchThrow() {
   }
 
-
+  public void hitCheck() {
+  }
+}
+class Flock {
 
 }
+
 // This is the ball object
 class Ball {
   float radius; 
@@ -90,18 +137,22 @@ class Ball {
     ballV = new PVector(_ballvx, _ballvy);
   }
 
-  public void update() {
+  public void update(ArrayList<Ball> balls) {
     fill(ballColor);
     ellipse(ballP.x, ballP.y, radius, radius);
 
     ballP.x += ballV.x; 
     ballP.y += ballV.y;
+
+    ballCollision(balls);
+    wallCollision();
   }
 
   public void playerCollision() {
 
   }
 
+  // Detect wall Collision
   public void wallCollision() {
     // left and right walls
     if (ballP.x + radius/2 > width) {
@@ -121,13 +172,25 @@ class Ball {
       ballV.y *= -1;
     }
   }
+  
+  public void playerTwoCollision(float _p2x, float _p2y, float _p2w, float _p2h){
+   if ((ballP.x >= _p2x) && (ballP.x <= _p2x + _p2w)){
+     if ((ballP.y >= _p2y) && (ballP.y <= _p2y + _p2h)){
+       println("boom");
+     }
+   }
+  }
 
   // When the balls collide with eachother
-  // void ballCollision(ArrayList<Ball> balls) {
-  //   for (Ball other : balls) {
-  //     if (other.ballx)
-  //   }
-  // }
+  public void ballCollision(ArrayList<Ball> balls) {
+    for (Ball other : balls) {
+      float d = PVector.dist(ballP, other.ballP);
+      if (d < 1) {
+        other.ballV.x *= -1;
+        other.ballV.y *= -1;
+      }
+    }
+  }
 }
   public void settings() {  size(800, 800); }
   static public void main(String[] passedArgs) {
