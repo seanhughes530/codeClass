@@ -34,7 +34,7 @@ void draw() {
   background(255);
 
   p1.update();
-  playerCollide();
+  //playerCollide();
   ballLogic(); 
 
   for (Ball ball : balls) {
@@ -120,11 +120,3 @@ void playerTwo() {
 
 
 //}
-
-void p1crtl() {
-  p1.drawPlayer();
-  p1.update();
-  p1.hitCheck();
-  p1.pMove();
-
-}
