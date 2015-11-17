@@ -51,21 +51,21 @@ class Ball {
     }
   }
   
-void playerTwoCollision(float _p2x, float _p2y, float _p2w, float _p2h){
- if ((ballP.x >= _p2x) && (ballP.x <= _p2x + _p2w)){
-   if ((ballP.y >= _p2y) && (ballP.y <= _p2y + _p2h)){
-     println("boom");
+  void playerTwoCollision(float _p2x, float _p2y, float _p2w, float _p2h){
+   if ((ballP.x >= _p2x) && (ballP.x <= _p2x + _p2w)){
+     if ((ballP.y >= _p2y) && (ballP.y <= _p2y + _p2h)){
+       println("boom");
+     }
    }
- }
-}
+  }
 
   // When the balls collide with eachother
   void ballCollision(ArrayList<Ball> balls) {
     for (Ball other : balls) {
       float d = PVector.dist(ballP, other.ballP);
       if (d < 1) {
-        float a = PVector.angleBetween(ballP, other.ballP);
-        println("hello");
+        other.ballV.x *= -1;
+        other.ballV.y *= -1;
       }
     }
   }
