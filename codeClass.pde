@@ -4,7 +4,8 @@ ArrayList<Ball> balls = new ArrayList<Ball>();
 // Ball Object Variables
 float radius;
 float ballv;
-color ballColor; 
+color ballColor;
+Paddle p1= new Paddle();
 
 //player2
 float p2x, p2y, p2w, p2h;
@@ -29,7 +30,7 @@ void setup() {
 
 void draw() {
   background(255);
-  
+  p1crtl();
   ballLogic(); 
   
   for(Ball ball : balls){
@@ -63,4 +64,11 @@ void playerTwo(){
       p2x += 10;
     }
   }
+}
+
+void p1crtl(){
+  p1.drawPlayer();
+  p1.update();
+  p1.hitCheck();
+  p1.pMove();
 }
