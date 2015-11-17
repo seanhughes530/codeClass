@@ -17,14 +17,10 @@ void setup() {
   radius = 10;
   ballColor = color(255, 122, 133);
   ballv = 10;
-<<<<<<< HEAD
-  
-=======
 
   p2x = width/2;
   p2y = 100;
 
->>>>>>> 77ff1eebdabc32f2dc9f6f334655033198da473e
   for (int i = 0; i < 10; i++) {
     balls.add(new Ball(radius, random(width), random(height), ballv, ballv, ballColor));
   }
