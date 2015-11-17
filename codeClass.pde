@@ -16,8 +16,13 @@ void setup() {
   // Setup the ball class
   radius = 10;
   ballColor = color(255, 122, 133);
+<<<<<<< HEAD
   ballv = 10;
   p1 = new Paddle();
+=======
+  ballv = 2;
+
+>>>>>>> 41bf511e982647cc025d5153d61780842a7038b2
   p2x = width/2;
   p2y = 100;
   p2w = 30;
@@ -43,9 +48,7 @@ void draw() {
 // To make our draw funciton cleaner
 void ballLogic() {
   for (Ball ball : balls) {
-    ball.update();
-    ball.wallCollision();
-    // ball.ballCollision(); 
+    ball.update(balls);
   }
 }
 
