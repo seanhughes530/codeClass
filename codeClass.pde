@@ -34,11 +34,12 @@ void draw() {
   rect(p2x, p2y, 30, 30);
 }
 
-
+// To make our draw funciton cleaner
 void ballLogic() {
   for (Ball ball : balls) {
     ball.update();
     ball.wallCollision();
+    // ball.ballCollision(); 
   }
 }
 
