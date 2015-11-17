@@ -1,9 +1,9 @@
 class Flock {
-
 }
 
 // This is the ball object
 class Ball {
+  
   float radius; 
   color ballColor;
   PVector ballP, ballV;
@@ -14,6 +14,7 @@ class Ball {
     ballP = new PVector(_ballx, _bally);
     ballV = new PVector(_ballvx, _ballvy);
   }
+
 
   void update(ArrayList<Ball> balls) {
     fill(ballColor);
@@ -27,7 +28,6 @@ class Ball {
   }
 
   void playerCollision() {
-
   }
 
   // Detect wall Collision
@@ -38,7 +38,7 @@ class Ball {
       ballP.x = width - 1;
     } else if (ballP.x - radius/2 < 0) {
       ballV.x *= -1;
-      ballP.x = 1; 
+      ballP.x = 1;
     }
 
     // top and bottom walls
@@ -47,17 +47,19 @@ class Ball {
       ballP.y = height - 1;
     } else if (ballP.y - radius/2 < 0) {
       ballV.y *= -1;
-      ballP.y = 1; 
+      ballP.y = 1;
     }
   }
-  
-  void playerTwoCollision(float _p2x, float _p2y, float _p2w, float _p2h){
-   if ((ballP.x >= _p2x) && (ballP.x <= _p2x + _p2w)){
-     if ((ballP.y >= _p2y) && (ballP.y <= _p2y + _p2h)){
-       println("boom");
-     }
-   }
-  }
 
+  void playerTwoCollision(float _p2x, float _p2y, float _p2w, float _p2h) {
+    
+    if (ballP.x >= _p2x && ballP.x <= _p2x + _p2w) {
+      
+      if (ballP.y >= _p2y && ballP.y <= _p2y + _p2h) {
+        
+        println("boom");
+      }
+    }
+  }
   // When the balls collide with eachother
 }
