@@ -11,19 +11,16 @@ Paddle p1;
 float p2x, p2y, p2w, p2h;
 
 void setup() {
-  
+
   size(800, 800);
   // Setup the ball class
   radius = 10;
   ballColor = color(255, 122, 133);
-<<<<<<< HEAD
-  ballv = 10;
-  p1 = new Paddle();
-=======
-  ballv = 2;
 
->>>>>>> 41bf511e982647cc025d5153d61780842a7038b2
-  p2x = width/2;
+    ballv = 10;
+  p1 = new Paddle();
+
+    p2x = width/2;
   p2y = 100;
   p2w = 30;
   p2h = 30;
@@ -37,8 +34,8 @@ void draw() {
   background(255);
   p1crtl();
   ballLogic(); 
-  
-  for(Ball ball : balls){
+
+  for (Ball ball : balls) {
     ball.playerTwoCollision(p2x, p2y, p2w, p2h);
   }
   playerTwo();
@@ -52,24 +49,24 @@ void ballLogic() {
   }
 }
 
-void playerTwo(){
-  if(keyPressed){
-    if(key == 'i'){
+void playerTwo() {
+  if (keyPressed) {
+    if (key == 'i') {
       p2y -= 10;
     }
-    if(key == 'k'){
+    if (key == 'k') {
       p2y += 10;
     }
-    if(key == 'j'){
+    if (key == 'j') {
       p2x -= 10;
     }
-    if(key == 'l'){
+    if (key == 'l') {
       p2x += 10;
     }
   }
 }
 
-void p1crtl(){
+void p1crtl() {
   p1.drawPlayer();
   p1.update();
   p1.hitCheck();
