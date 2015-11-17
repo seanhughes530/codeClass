@@ -64,8 +64,7 @@ void playerTwo() {
       p2x += 10;
     }
   }
-<<<<<<< HEAD
-=======
+
 }
 
 void p1crtl() {
@@ -73,5 +72,5 @@ void p1crtl() {
   p1.update();
   p1.hitCheck();
   p1.pMove();
->>>>>>> 7bcf0f9b39cc55dcfbb0d5a579051f3b23e655de
+
 }
