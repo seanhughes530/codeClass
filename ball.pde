@@ -42,6 +42,14 @@ class Ball {
       ballV.y *= -1;
     }
   }
+  
+void playerTwoCollision(float _p2x, float _p2y, float _p2w, float _p2h){
+ if ((ballP.x >= _p2x) && (ballP.x <= _p2x + _p2w)){
+   if ((ballP.y >= _p2y) && (ballP.y <= _p2y + _p2h)){
+     println("boom");
+   }
+ }
+}
 
   // When the balls collide with eachother
   // void ballCollision(ArrayList<Ball> balls) {

@@ -7,7 +7,7 @@ float ballv;
 color ballColor; 
 
 //player2
-float p2x, p2y;
+float p2x, p2y, p2w, p2h;
 
 void setup() {
   
@@ -19,6 +19,8 @@ void setup() {
 
   p2x = width/2;
   p2y = 100;
+  p2w = 30;
+  p2h = 30;
 
   for (int i = 0; i < 10; i++) {
     balls.add(new Ball(radius, random(width), random(height), ballv, ballv, ballColor));
@@ -30,8 +32,11 @@ void draw() {
   
   ballLogic(); 
   
+  for(Ball ball : balls){
+    ball.playerTwoCollision(p2x, p2y, p2w, p2h);
+  }
   playerTwo();
-  rect(p2x, p2y, 30, 30);
+  rect(p2x, p2y, p2w, p2h);
 }
 
 // To make our draw funciton cleaner
