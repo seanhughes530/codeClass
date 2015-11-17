@@ -6,6 +6,9 @@ float radius;
 float ballv;
 color ballColor; 
 
+//player2
+float p2x, p2y;
+
 void setup() {
   
   size(800, 800);
@@ -13,6 +16,9 @@ void setup() {
   radius = 10;
   ballColor = color(255, 122, 133);
   ballv = 10;
+
+  p2x = width/2;
+  p2y = 100;
 
   for (int i = 0; i < 10; i++) {
     balls.add(new Ball(radius, random(width), random(height), ballv, ballv, ballColor));
@@ -23,6 +29,9 @@ void draw() {
   background(255);
   
   ballLogic(); 
+  
+  playerTwo();
+  rect(p2x, p2y, 30, 30);
 }
 
 
@@ -30,5 +39,22 @@ void ballLogic() {
   for (Ball ball : balls) {
     ball.update();
     ball.wallCollision();
+  }
+}
+
+void playerTwo(){
+  if(keyPressed){
+    if(key == 'i'){
+      p2y -= 10;
+    }
+    if(key == 'k'){
+      p2y += 10;
+    }
+    if(key == 'j'){
+      p2x -= 10;
+    }
+    if(key == 'l'){
+      p2x += 10;
+    }
   }
 }
