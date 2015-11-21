@@ -52,13 +52,29 @@ class Ball {
   }
 
   void playerTwoCollision(float _p2x, float _p2y, float _p2w, float _p2h) {
+    ////hit top of box
+    //if ((ballP.x >= _p2x) && (ballP.x <= _p2x + _p2w) && () && (ballP.y >= _p2y)){
+    //  ballV.y *= -1;
+    //} 
+    ////hit bottom of box
+    //if ((ballP.x >= _p2x) && (ballP.x <= _p2x + _p2w) && (ballP.y <= _p2y + _p2h)){
+    //  ballV.y *= -1;
+    //}
+    ////hit right side
+    //if ((ballP.y >= _p2y) && (ballP.y <= _p2y + _p2h) && (ballP.x >= _p2x)){
+    //  ballV.x *= -1;
+    //}
+    ////hit left side
+    //if ((ballP.y >= _p2y) && (ballP.y <= _p2y + _p2h) && (ballP.x <= _p2x + _p2w)){
+    //  ballV.x *= -1;
+    //}
     
-    if (ballP.x >= _p2x && ballP.x <= _p2x + _p2w) {
-      
-      if (ballP.y >= _p2y && ballP.y <= _p2y + _p2h) {
-        
-        println("boom");
-      }
+    if (ballP.x >= _p2x && ballP.x <= _p2x + _p2w) {    
+     if (ballP.y >= _p2y && ballP.y <= _p2y + _p2h) {
+       ballV.x *= -1;
+       //ballV.y *= -1;
+       println("boom");
+     }
     }
   }
   // When the balls collide with eachother

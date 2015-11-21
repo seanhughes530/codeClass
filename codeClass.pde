@@ -22,8 +22,8 @@ void setup() {
   p1 = new Paddle();
   p2x = width/2;
   p2y = 100;
-  p2w = 30;
-  p2h = 30;
+  p2w = 5;
+  p2h = 40;
 
   for (int i = 0; i < 10; i++) {
     balls.add(new Ball(radius, random(width), random(height), ballv, ballv, ballColor));
