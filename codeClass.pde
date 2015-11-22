@@ -42,17 +42,12 @@ void draw() {
     p1.update();
     //playerCollide();
     ballLogic(); 
-
-<<<<<<< HEAD
+    
   for (Ball ball : balls) {
     ball.playerTwoCollision(p2x, p2y, p2w, p2h);
     ball.playerOneCollision(p1.paddleX,p1.paddleY,p1.pWidth,p1.pHeight);
   }
-=======
-    for (Ball ball : balls) {
-      ball.playerTwoCollision(p2x, p2y, p2w, p2h);
-    }
->>>>>>> 0994c655a37c78dc698aca39794e9af34a7a34a2
+
 
     playerTwo();
     rect(p2x, p2y, p2w, p2h);
