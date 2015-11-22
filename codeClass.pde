@@ -70,53 +70,50 @@ void playerTwo() {
 
 }
 
-//void playerCollide() {
+void playerCollide() {
 
-//  // if Player 1 hits the left side of Player 2 they stop.
+ //// if Player 1 hits the left side of Player 2 they stop.
 
-//  if (p1.paddleY > p2y - p1.pHeight && p1.paddleY + p1.pHeight < p2y + p2h + p1.pHeight && p1.paddleX  < p2x) {
+ //if (p1.paddleY > p2y - p1.pHeight && p1.paddleY + p1.pHeight < p2y + p2h + p1.pHeight && p1.paddleX  < p2x) {
     
-//    float savedSpeed = 0;
-//    float savedX;
-//    //float savedY;
-//    savedX = p1.paddleX;
-//    //savedY = p1.paddleY;
+ //  float savedSpeed = 0;
+ //  float savedX;
+ //  //float savedY;
+ //  savedX = p1.paddleX;
+ //  //savedY = p1.paddleY;
 
-//    if (p1.paddleX + p1.pWidth >= p2x) {
-//      savedSpeed = p1.speedX;
-//      p1.speedX = 0;
-//      p1.paddleX = savedX;
-//    } else {
-//      p1.speedX = savedSpeed;
-//      savedSpeed = 0;
-//    }
-//  } 
+ //  if (p1.paddleX + p1.pWidth >= p2x) {
+ //    savedSpeed = p1.speedX;
+ //    p1.speedX = 0;
+ //    p1.paddleX = savedX;
+ //  } else {
+ //    p1.speedX = savedSpeed;
+ //    savedSpeed = 0;
+ //  }
+ //} 
   
-//  // If Player 1 hits the right side of Player 2
-//  else if (p1.paddleX <= p2x + p2w && p1.paddleY > p2y - p1.pHeight && p1.paddleY + p1.pHeight < p2y + p2h + p1.pHeight) {
-//    float savedSpeed = 0;
-//    float savedX;
-//    float savedY;
-//    savedX = p1.paddleX;
-//    savedY = p1.paddleY;
-//    if (p1.paddleX + p1.pWidth >= p2x) 
-//    {
-//      savedSpeed = p1.speedX;
-//      p1.speedX = 0;
-//    } else {
-//      p1.speedX = savedSpeed;
-//      savedSpeed = 0;
-//    }
-//    if (p1.paddleY + p1.pHeight > p2x && p1.paddleY > p2y && p1.paddleY < p2y + p2h) 
-//    {
-//      p1.speedX = 0;
-//    }
-//    if (p1.paddleY + p1.pWidth > p2x && p1.paddleY > p2y && p1.paddleY < p2y + p2h) 
-//    {
-//      p1.speedX = 0;
-//    }
-//  }
-//}
-
-
-//}
+ //// If Player 1 hits the right side of Player 2
+ //else if (p1.paddleX <= p2x + p2w && p1.paddleY > p2y - p1.pHeight && p1.paddleY + p1.pHeight < p2y + p2h + p1.pHeight) {
+ //  float savedSpeed = 0;
+ //  float savedX;
+ //  float savedY;
+ //  savedX = p1.paddleX;
+ //  savedY = p1.paddleY;
+ //  if (p1.paddleX + p1.pWidth >= p2x) 
+ //  {
+ //    savedSpeed = p1.speedX;
+ //    p1.speedX = 0;
+ //  } else {
+ //    p1.speedX = savedSpeed;
+ //    savedSpeed = 0;
+ //  }
+ //  if (p1.paddleY + p1.pHeight > p2x && p1.paddleY > p2y && p1.paddleY < p2y + p2h) 
+ //  {
+ //    p1.speedX = 0;
+ //  }
+ //  if (p1.paddleY + p1.pWidth > p2x && p1.paddleY > p2y && p1.paddleY < p2y + p2h) 
+ //  {
+ //    p1.speedX = 0;
+ //  }
+ //}
+}

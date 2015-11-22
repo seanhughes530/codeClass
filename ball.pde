@@ -7,6 +7,8 @@ class Ball {
   float radius; 
   color ballColor;
   PVector ballP, ballV;
+  
+  
 
   Ball(float _radius, float _ballx, float _bally, float _ballvy, float _ballvx, color _ballc) {
     radius = _radius;
@@ -71,6 +73,20 @@ class Ball {
     
     if (ballP.x >= _p2x && ballP.x <= _p2x + _p2w) {    
      if (ballP.y >= _p2y && ballP.y <= _p2y + _p2h) {
+       ballV.x *= -1;
+       //ballV.y *= -1;
+       println("boom");
+     }
+    }
+  }
+  void playerOneCollision(float _p1x, float _p1y, float _p1w, float _p1h) {
+    _p1x = p1.paddleX;
+    _p1y = p1.paddleY;
+    _p1w = p1.pWidth;
+    _p1h = p1.pHeight;
+    
+    if (ballP.x >= _p1x && ballP.x <= _p1x + _p1w) {    
+     if (ballP.y >= _p1y && ballP.y <= _p1y + _p1h) {
        ballV.x *= -1;
        //ballV.y *= -1;
        println("boom");

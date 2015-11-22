@@ -1,5 +1,5 @@
 class Paddle {
-  
+
   float paddleX, paddleY, newPX, newPY, speedX, speedY, pWidth, pHeight;
   color p1Color;
   PVector f = new PVector(0, 0);
@@ -45,8 +45,6 @@ class Paddle {
 
       if (speedY >=5) {
         speedY = 5;
-      } else { 
-        speedY *= 0;
       }
 
       if (key == 'a' || key == 'A') {
