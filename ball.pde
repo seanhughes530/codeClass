@@ -73,7 +73,7 @@ class Ball {
      if (ballP.y >= _p2y && ballP.y <= _p2y + _p2h) {
        ballV.x *= -1;
        //ballV.y *= -1;
-       println("boom");
+       gameOver = true;
      }
     }
   }
