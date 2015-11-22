@@ -10,7 +10,7 @@ class Paddle {
     noStroke();
     speedX = .5f;
     speedY = .5f;
-    pWidth = 10;
+    pWidth = 50;
     pHeight = 50;
     paddleX = pWidth;
     paddleY = (height/2) - (pHeight/2);

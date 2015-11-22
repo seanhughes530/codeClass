@@ -39,6 +39,7 @@ void draw() {
 
   for (Ball ball : balls) {
     ball.playerTwoCollision(p2x, p2y, p2w, p2h);
+    ball.playerOneCollision(p1.paddleX,p1.paddleY,p1.pWidth,p1.pHeight);
   }
 
   playerTwo();

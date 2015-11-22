@@ -3,12 +3,12 @@ class Flock {
 
 // This is the ball object
 class Ball {
-  
+
   float radius; 
   color ballColor;
   PVector ballP, ballV;
-  
-  
+
+
 
   Ball(float _radius, float _ballx, float _bally, float _ballvy, float _ballvx, color _ballc) {
     radius = _radius;
@@ -70,28 +70,62 @@ class Ball {
     //if ((ballP.y >= _p2y) && (ballP.y <= _p2y + _p2h) && (ballP.x <= _p2x + _p2w)){
     //  ballV.x *= -1;
     //}
-    
+
     if (ballP.x >= _p2x && ballP.x <= _p2x + _p2w) {    
-     if (ballP.y >= _p2y && ballP.y <= _p2y + _p2h) {
-       ballV.x *= -1;
-       //ballV.y *= -1;
-       println("boom");
-     }
+      if (ballP.y >= _p2y && ballP.y <= _p2y + _p2h) {
+        ballV.x *= -1;
+        //ballV.y *= -1;
+        println("boom");
+      }
     }
   }
   void playerOneCollision(float _p1x, float _p1y, float _p1w, float _p1h) {
-    _p1x = p1.paddleX;
-    _p1y = p1.paddleY;
-    _p1w = p1.pWidth;
-    _p1h = p1.pHeight;
-    
-    if (ballP.x >= _p1x && ballP.x <= _p1x + _p1w) {    
-     if (ballP.y >= _p1y && ballP.y <= _p1y + _p1h) {
-       ballV.x *= -1;
-       //ballV.y *= -1;
-       println("boom");
-     }
+    float pB = _p1y + _p1h, pR = _p1x + _p1w;
+    boolean hitvert = false, hithor = false;
+
+
+    // hits top or bottom
+    if (ballP.x >= _p1x && ballP.x <= pR) {    
+      if ((ballP.y >= _p1y && ballP.y <= _p1y + 5 ) || (ballP.y <= pB && ballP.y >= pB - 5)) {
+        hitvert = true;
+        if (hitvert) {
+          ballV.y *= -1;
+        }
+        println("boom");
+      } else {
+        hitvert = false;
+      }
     }
+
+    if (ballP.y >= _p1y && ballP.y <= pB) {    
+      if ((ballP.x >= _p1x && ballP.x <= _p1x + 5 ) || (ballP.x <= pR && ballP.x >= pR - 5)) {
+        hithor = true;
+        if (hithor) {
+          ballV.x *= -1;
+        }
+        println("boom");
+      } else {
+        hithor = false;
+      }
+    }
+
+    if (ballP.x >= _p1x && ballP.x <= pR && ballP.y >= _p1y && ballP.y <= pB) {
+      ballV.y *= -1;
+      ballV.x *= -1;
+    }
+
+
+
+    // hits right or left
+
+    //if (ballP.y >= _p1y && ballP.y <= _p1y + _p1h) {
+    //  if (ballP.x >= _p1x && ballP.x <= _p1x + _p1w) {    
+
+
+    //    ballV.x *= -1;
+    //    println("boom");
+    //  }
+    //}
   }
   // When the balls collide with eachother
 }
