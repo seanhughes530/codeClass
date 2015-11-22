@@ -7,12 +7,15 @@ float ballv;
 color ballColor;
 Paddle p1;
 
+boolean gameOver;
+
 //player2
 float p2x, p2y, p2w, p2h;
 
 void setup() {
 
   size(800, 800);
+  gameOver = false;
   // Setup the ball class
   radius = 10;
   ballColor = color(255, 122, 133);
@@ -33,17 +36,27 @@ void setup() {
 void draw() {
   background(255);
 
-  p1.update();
-  //playerCollide();
-  ballLogic(); 
+  if (gameOver) {
+    text("GG YOU LOST", 12, 60);
+  } else {
+    p1.update();
+    //playerCollide();
+    ballLogic(); 
 
+<<<<<<< HEAD
   for (Ball ball : balls) {
     ball.playerTwoCollision(p2x, p2y, p2w, p2h);
     ball.playerOneCollision(p1.paddleX,p1.paddleY,p1.pWidth,p1.pHeight);
   }
+=======
+    for (Ball ball : balls) {
+      ball.playerTwoCollision(p2x, p2y, p2w, p2h);
+    }
+>>>>>>> 0994c655a37c78dc698aca39794e9af34a7a34a2
 
-  playerTwo();
-  rect(p2x, p2y, p2w, p2h);
+    playerTwo();
+    rect(p2x, p2y, p2w, p2h);
+  }
 }
 
 // To make our draw funciton cleaner

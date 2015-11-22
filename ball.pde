@@ -72,11 +72,19 @@ class Ball {
     //}
 
     if (ballP.x >= _p2x && ballP.x <= _p2x + _p2w) {    
+<<<<<<< HEAD
       if (ballP.y >= _p2y && ballP.y <= _p2y + _p2h) {
         ballV.x *= -1;
         //ballV.y *= -1;
         println("boom");
       }
+=======
+     if (ballP.y >= _p2y && ballP.y <= _p2y + _p2h) {
+       ballV.x *= -1;
+       //ballV.y *= -1;
+       gameOver = true;
+     }
+>>>>>>> 0994c655a37c78dc698aca39794e9af34a7a34a2
     }
   }
   void playerOneCollision(float _p1x, float _p1y, float _p1w, float _p1h) {
